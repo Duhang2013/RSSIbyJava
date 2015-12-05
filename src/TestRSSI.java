@@ -10,6 +10,7 @@ public class TestRSSI {
 	
 	public static void main(String[] args) {
 		
+		//模拟数据
 		Map<Object, Object> info = new HashMap<Object, Object>();
 		info.put("t", 12);
 		info.put("EPC", 12);
@@ -19,16 +20,10 @@ public class TestRSSI {
 		
 	}
 	
-	
-	
 	/*
-	 * 杜航 
-	 * 功能：实现RSSI单点检测
-	 * 接收参数：receive包含：t EPC ID RSSI
-	 * 返回参数：
+	 * 之后再将另外的类里面的方法移植到这里面
 	 */
-	public void singlePoint(Map receive){
-		
-	}
+	
+
 	
 }
