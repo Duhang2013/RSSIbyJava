@@ -21,7 +21,7 @@ public class TestRSSI {
 		
 		Map<String, Map<Object, String>> info = new HashMap<String, Map<Object, String>>();
 
-		// 分别给天线的参数赋值
+		// 分别给天线的参数赋值（此处用于模拟）
 		info.put("1", info1);
 		info.put("2", info2);
 		info.put("3", info3);
@@ -31,14 +31,14 @@ public class TestRSSI {
 		info1.put("ID", "1");
 		info1.put("t", "12");
 		info1.put("EPC", "12");
-		info1.put("RSSI", "10");
+		info1.put("RSSI", "47");
 		info1.put("x", "0");
 		info1.put("y", "600");
 
 		info2.put("ID", "2");
 		info2.put("t", "12");
 		info2.put("EPC", "12");
-		info2.put("RSSI", "10");
+		info2.put("RSSI", "60");
 		info2.put("x", "0");
 		info2.put("y", "2700");
 
@@ -52,21 +52,20 @@ public class TestRSSI {
 		info4.put("ID", "4");
 		info4.put("t", "12");
 		info4.put("EPC", "12");
-		info4.put("RSSI", "0");
+		info4.put("RSSI", "30");
 		info4.put("x", "7000");
 		info4.put("y", "4800");
 
 		info5.put("ID", "5");
 		info5.put("t", "12");
-		info5.put("EPC", "12");
+		info5.put("EPC", "87");
 		info5.put("RSSI", "1000");
 		info5.put("x", "7000");
 		info5.put("y", "2700");
 
 		// 得到RSSI值的字符串数组
-		String[] Rssi = new String[] { info1.get("RSSI"), info2.get("RSSI"),
-				info3.get("RSSI"), info4.get("RSSI"), info5.get("RSSI") };
-
+		String[] Rssi = new String[] { info1.get("RSSI"), info2.get("RSSI"), info3.get("RSSI"), info4.get("RSSI"), info5.get("RSSI") };
+		// 用于存放RSSI值不为零的天线
 		String[] jud = new String[Rssi.length];
 
 		int i = 0;
@@ -90,6 +89,7 @@ public class TestRSSI {
 			Rssi1[j] = String.valueOf(ia[j]);
 		}
 
+		// 用于存放经排序之后的RSSI值
 		String[] jud1 = new String[Rssi.length * info.size()];
 		int n = 0;
 		for (int m = 0; m < Rssi1.length; m++) {
@@ -117,15 +117,14 @@ public class TestRSSI {
 			break;
 		default:
 			System.out.println("三根及以上天线采集到了数据");
-			System.out.println(info.get(jud1[0]) + "\n" + info.get(jud1[1])
-					+ "\n" + info.get(jud1[2]));
+//			System.out.println(info.get(jud1[0]) + "\n" + info.get(jud1[1]) + "\n" + info.get(jud1[2]));
 			threePoints(info.get(jud1[0]), info.get(jud1[1]), info.get(jud1[2]));
 		}
 	}
 	
 	/*
 	 * 胡路瑶
-	 * 功能：排序函数
+	 * 功能：排序函数用于将所有的RSSI值进行从大到小排序
 	 */
 	private static void sort(int[] a) {
 		 for (int i = 0; i < a.length-1; i++) {
@@ -180,7 +179,6 @@ public class TestRSSI {
 	 * 返回参数：d
 	 */
 	public static float rssiFormula(float RSSI) {
-
 		float d = (float) Math.exp(-(RSSI + A) / (10 * n));
 		return d;
 	}
@@ -193,53 +191,53 @@ public class TestRSSI {
 	 */
 	public static Map threePoints(Map receive1, Map receive2, Map receive3) {
 		
-		Map<Object, Object> result = new HashMap<Object, Object>();//返回参数放在result中
-		
+		// 声明RSSI求解公式中涉及到的参数
 		float RSSI1, RSSI2, RSSI3, x1, x2, x3, y1, y2, y3, d1, d2, d3, A1, A2, A3, A4, B1, B2;
-		
+		// 获取RSSI值
 		RSSI1 = Float.parseFloat(receive1.get("RSSI").toString());
 		RSSI2 = Float.parseFloat(receive2.get("RSSI").toString());
 		RSSI3 = Float.parseFloat(receive3.get("RSSI").toString());
-		
+		// 获取天线横坐标值x
 		x1 = Float.parseFloat(receive1.get("x").toString());
 		x2 = Float.parseFloat(receive2.get("x").toString());
 		x3 = Float.parseFloat(receive3.get("x").toString());
-		
+		// 获取天线纵坐标值y
 		y1 = Float.parseFloat(receive1.get("y").toString());
 		y2 = Float.parseFloat(receive2.get("y").toString());
 		y3 = Float.parseFloat(receive3.get("y").toString());
-		
+		// 求解天线到标签的距离d
 		d1 = rssiFormula(RSSI1);
 		d2 = rssiFormula(RSSI2);
 		d3 = rssiFormula(RSSI3);
-		
-		//封装矩阵的元素
+		// 封装矩阵的元素
 		A1 = 2 * (x1 - x3);
 		A2 = 2 * (y1 - y3);
 		A3 = 2 * (x2 - x3);
 		A4 = 2 * (y2 - y3);
-		
 		B1 = (float) (Math.pow(x1,2) - Math.pow(x3,2) + Math.pow(y1,2) - Math.pow(y3,2) + Math.pow(d3,2) - Math.pow(d1,2));
 		B2 = (float) (Math.pow(x2,2) - Math.pow(x3,2) + Math.pow(y2,2) - Math.pow(y3,2) + Math.pow(d3,2) - Math.pow(d2,2));
-		
+		// 矩阵求解公式中第一个矩阵
 		float tempA[][] = { { A1, A2 }, { A3, A4 } };
 		Matrix A = new Matrix(tempA);
-		
+		// 矩阵求解公式中第二个矩阵
 		float tempB[][] = { { B1 }, { B2 } };
 		Matrix B = new Matrix(tempB);
-		
-		System.out.println("A:\n" + A.toString());
-		System.out.println("B:\n" + B.toString());
-		
-		Matrix XY = new Matrix(1, 2);//存放求解出的x,y坐标
-		
-		System.out.println("A的逆矩阵:\n" + A.reverse().toString());
+		// 声明求解的坐标(x,y)矩阵
+		Matrix XY = new Matrix(1, 2);
 
 		XY = A.reverse().multi(B);
 		
+//		System.out.println("XY:\n" + XY.toString());
+		System.out.println("标签坐标(x,y)为:\t" + "(" + XY.get(0, 0) + "," + XY.get(0, 0) + ")");
 		
-		System.out.println("XY:\n" + XY.toString());
-		
+		// 封装需要传给下一层的参数到result中
+		Map<Object, String> result = new HashMap<Object, String>();
+		result.put("ID", "5");
+		result.put("t", "12");
+		result.put("EPC", "12");
+		result.put("RSSI", "1000");
+		result.put("x", "1111");
+		result.put("y", "2700");
 		
 		return result;
 	}
