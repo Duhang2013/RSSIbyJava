@@ -21,9 +21,14 @@ public class TestRSSI {
 	}
 	
 	/*
-	 * 之后再将另外的类里面的方法移植到这里面
+	 * 杜航
+	 * 功能：实现RSSI三点定位 
+	 * 接收参数：receive包含：t EPC ID RSSI 
+	 * 返回参数：
 	 */
-	
+	public void threePoints() {
+		
+	}
 
 	
 }
