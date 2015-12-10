@@ -1,35 +1,35 @@
 package util;
 
 /**
- * ×÷Õß£º¶Åº½ ¹¦ÄÜ£ºMatrixÀàÊµÏÖ¾ØÕóµÄ»ù±¾²Ù×÷
+ * ä½œè€…ï¼šæœèˆª åŠŸèƒ½ï¼šMatrixç±»å®ç°çŸ©é˜µçš„åŸºæœ¬æ“ä½œ
  */
 public class Matrix {
 
-	private float value[][]; // ´æ´¢¾ØÕóÔªËØµÄ¶şÎ¬Êı×é£¨Ñ¡ÓÃfloatÀàĞÍ£©
+	private float value[][]; // å­˜å‚¨çŸ©é˜µå…ƒç´ çš„äºŒç»´æ•°ç»„ï¼ˆé€‰ç”¨floatç±»å‹ï¼‰
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ¹¹ÔìmĞĞnÁĞµÄ¿Õ¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼š æ„é€ mè¡Œnåˆ—çš„ç©ºçŸ©é˜µ
 	 */
 	public Matrix(int m, int n) {
 		this.value = new float[m][n];
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ¹¹ÔìnĞĞnÁĞµÄ¿Õ¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼š æ„é€ nè¡Œnåˆ—çš„ç©ºçŸ©é˜µ
 	 */
 	public Matrix(int n) {
 		this(n, n);
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ÎŞ²Î¹¹Ôìº¯ÊıÄ¬ÈÏ¹¹Ôì2ĞĞ2ÁĞµÄ¿Õ¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼š æ— å‚æ„é€ å‡½æ•°é»˜è®¤æ„é€ 2è¡Œ2åˆ—çš„ç©ºçŸ©é˜µ
 	 */
 	public Matrix() {
 		this(2, 2);
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ¹¹Ôì¾ØÕó£¬ÓÉÊı×ématÌá¹©¾ØÕóÔªËØ
+	 * æœèˆª åŠŸèƒ½ï¼š æ„é€ çŸ©é˜µï¼Œç”±æ•°ç»„matæä¾›çŸ©é˜µå…ƒç´ 
 	 */
 	public Matrix(float mat[][]) {
 		this(mat.length, mat[0].length);
@@ -39,21 +39,21 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º »ñµÃ¾ØÕóµÚiĞĞµÚjÁĞµÄÔªËØ
+	 * æœèˆª åŠŸèƒ½ï¼š è·å¾—çŸ©é˜µç¬¬iè¡Œç¬¬jåˆ—çš„å…ƒç´ 
 	 */
 	public float get(int i, int j) {
 		return value[i][j];
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ÉèÖÃ¾ØÕóµÚiĞĞµÚjÁĞµÄÔªËØ
+	 * æœèˆª åŠŸèƒ½ï¼š è®¾ç½®çŸ©é˜µç¬¬iè¡Œç¬¬jåˆ—çš„å…ƒç´ 
 	 */
 	public void set(int i, int j, int k) {
 		value[i][j] = k;
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ĞĞÖ÷Ğò±éÀú£¬·ÃÎÊ¾ØÕóÈ«²¿ÔªËØ
+	 * æœèˆª åŠŸèƒ½ï¼š è¡Œä¸»åºéå†ï¼Œè®¿é—®çŸ©é˜µå…¨éƒ¨å…ƒç´ 
 	 */
 	public String toString() {
 		String str = "";
@@ -66,7 +66,7 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º thisºÍbÁ½¸ö¾ØÕóÏà¼Ó£¬¸Ä±äµ±Ç°¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼š thiså’Œbä¸¤ä¸ªçŸ©é˜µç›¸åŠ ï¼Œæ”¹å˜å½“å‰çŸ©é˜µ
 	 */
 	public void add(Matrix b) {
 		for (int i = 0; i < this.value.length; i++)
@@ -75,7 +75,7 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£ºthisºÍbÁ½¸ö¾ØÕóÏà¼õ£¬¸Ä±äµ±Ç°¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼šthiså’Œbä¸¤ä¸ªçŸ©é˜µç›¸å‡ï¼Œæ”¹å˜å½“å‰çŸ©é˜µ
 	 */
 	public void minus(Matrix b) {
 		for (int i = 0; i < this.value.length; i++)
@@ -84,11 +84,11 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ¾ØÕóÏà³Ë£ºµ±Ç°¾ØÕó=µ±Ç°¾ØÕó*b
+	 * æœèˆª åŠŸèƒ½ï¼š çŸ©é˜µç›¸ä¹˜ï¼šå½“å‰çŸ©é˜µ=å½“å‰çŸ©é˜µ*b
 	 */
 	public Matrix multi(Matrix b) {
 		if (this.value[0].length != b.value.length) {
-			System.out.println("ÕâÁ½¸ö¾ØÕó²»ÄÜÏà³Ë");
+			System.out.println("è¿™ä¸¤ä¸ªçŸ©é˜µä¸èƒ½ç›¸ä¹˜");
 			return null;
 		}
 		Matrix temp = new Matrix(value.length, b.value[0].length);
@@ -104,7 +104,7 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ·µ»Ø×ªÖÃ¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼š è¿”å›è½¬ç½®çŸ©é˜µ
 	 */
 	public Matrix transpose() {
 		Matrix temp = new Matrix(value[0].length, value.length);
@@ -115,7 +115,7 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ·µ»Ø°éËæ¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼š è¿”å›ä¼´éšçŸ©é˜µ
 	 */
 	private Matrix ajoint() {
 		int m = this.value.length;
@@ -145,14 +145,14 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£º ·µ»ØĞĞÁĞÊ½µÄ´úÊıÓà×ÓÊ½
+	 * æœèˆª åŠŸèƒ½ï¼š è¿”å›è¡Œåˆ—å¼çš„ä»£æ•°ä½™å­å¼
 	 */
 	private Matrix detCofactor(int i, int j) {
 
-		int x = this.value.length; // ÊäÈë¾ØÕóµÄĞĞÊıÁĞÊı
+		int x = this.value.length; // è¾“å…¥çŸ©é˜µçš„è¡Œæ•°åˆ—æ•°
 		int y = this.value[0].length;
 
-		Matrix temp = new Matrix(x - 1, y - 1);// bÎªËùÇóµÄÓà×ÓÊ½
+		Matrix temp = new Matrix(x - 1, y - 1);// bä¸ºæ‰€æ±‚çš„ä½™å­å¼
 
 		for (int m = 0; m < x - 1; m++) {
 			if (m < i) {
@@ -179,18 +179,18 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£ºÇó½â¾ØÕó£¨ĞĞÁĞÊ½£©µÄÄ£Öµ
+	 * æœèˆª åŠŸèƒ½ï¼šæ±‚è§£çŸ©é˜µï¼ˆè¡Œåˆ—å¼ï¼‰çš„æ¨¡å€¼
 	 */
 	public float detValue() {
 		float val = 0;
-		/* ÈôÎª2*2µÄ¾ØÕó¿ÉÖ±½ÓÇóÖµ²¢·µ»Ø */
+		/* è‹¥ä¸º2*2çš„çŸ©é˜µå¯ç›´æ¥æ±‚å€¼å¹¶è¿”å› */
 		if (this.value[0].length == 2) {
 			val = this.value[0][0] * this.value[1][1] - this.value[0][1]
 					* this.value[1][0];
 		} else {
-			for (int i = 0; i < this.value[0].length; i++) {// Èô¾ØÕó²»Îª2*2ÄÇÃ´ĞèÇó³ö¾ØÕóµÚÒ»ĞĞ´úÊıÓà×ÓÊ½µÄºÍ
+			for (int i = 0; i < this.value[0].length; i++) {// è‹¥çŸ©é˜µä¸ä¸º2*2é‚£ä¹ˆéœ€æ±‚å‡ºçŸ©é˜µç¬¬ä¸€è¡Œä»£æ•°ä½™å­å¼çš„å’Œ
 				Matrix temp = this.detCofactor(0, i);
-				if (i % 2 == 0) { // µİ¹é
+				if (i % 2 == 0) { // é€’å½’
 					val = val + this.value[0][i] * temp.detValue();
 				} else {
 					val = val - this.value[0][i] * temp.detValue();
@@ -202,7 +202,7 @@ public class Matrix {
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£ºÇón*n¾ØÕóµÄÄæ¾ØÕó
+	 * æœèˆª åŠŸèƒ½ï¼šæ±‚n*nçŸ©é˜µçš„é€†çŸ©é˜µ
 	 */
 	public Matrix reverse() {
 		int m = this.value.length;
@@ -210,9 +210,9 @@ public class Matrix {
 
 		Matrix temp = new Matrix(m, n);
 
-		float value = this.detValue(); // Ä£Öµ
+		float value = this.detValue(); // æ¨¡å€¼
 		if (value != 0) {
-			temp = this.ajoint(); // °éËæ¾ØÕó
+			temp = this.ajoint(); // ä¼´éšçŸ©é˜µ
 			for (int i = 0; i < m; i++) {
 				for (int j = 0; j < n; j++) {
 					temp.value[i][j] = temp.value[i][j] / value;
@@ -220,13 +220,13 @@ public class Matrix {
 			}
 			return temp;
 		} else {
-			System.out.println("ĞĞÁĞÊ½µÄÄ£ÖµÎª0£¡²»´æÔÚÄæ¾ØÕó£¡£¡£¡");
+			System.out.println("è¡Œåˆ—å¼çš„æ¨¡å€¼ä¸º0ï¼ä¸å­˜åœ¨é€†çŸ©é˜µï¼ï¼ï¼");
 			return null;
 		}
 	}
 
 	/*
-	 * ¶Åº½ ¹¦ÄÜ£ºmain()²âÊÔ¾ØÕóµÄ»ù±¾²Ù×÷º¯Êı
+	 * æœèˆª åŠŸèƒ½ï¼šmain()æµ‹è¯•çŸ©é˜µçš„åŸºæœ¬æ“ä½œå‡½æ•°
 	 */
 	public static void main(String args[]) {
 
@@ -239,7 +239,7 @@ public class Matrix {
 		a.multi(b);
 		System.out.print("Matrix a*b:\n" + a.toString());
 
-		System.out.println("aµÄ×ªÖÃ¾ØÕó£º\n" + a.transpose().toString());
+		System.out.println("açš„è½¬ç½®çŸ©é˜µï¼š\n" + a.transpose().toString());
 
 		float m3[][] = { { 1, 2, -3 }, { 0, 1, 2 }, { 0, 0, 1 } };
 		Matrix c = new Matrix(m3);
@@ -251,25 +251,25 @@ public class Matrix {
 
 		float m5[][] = { { 1, 2, 3 }, { 2, 3, 4 }, { 3, 4, 5 } };
 		Matrix e = new Matrix(m5);
-		System.out.println("°éËæ¾ØÕó:\n" + e.ajoint().toString());
+		System.out.println("ä¼´éšçŸ©é˜µ:\n" + e.ajoint().toString());
 
 		float m51[][] = { { 1, 2 }, { 3, 4 } };
 		Matrix e1 = new Matrix(m51);
-		System.out.println("°éËæ¾ØÕó:\n" + e1.ajoint().toString());
+		System.out.println("ä¼´éšçŸ©é˜µ:\n" + e1.ajoint().toString());
 
 		float m6[][] = { { 1, 2, -3 }, { 0, 1, 2 }, { 0, 0, 1 } };
 		Matrix f = new Matrix(m6);
-		System.out.println("Äæ¾ØÕó:\n" + f.reverse().toString());
+		System.out.println("é€†çŸ©é˜µ:\n" + f.reverse().toString());
 
 		float m7[][] = { { 0, 1 }, { -1, 0 } };
 		Matrix g = new Matrix(m7);
-		System.out.println("Äæ¾ØÕó:\n" + g.reverse().toString());
+		System.out.println("é€†çŸ©é˜µ:\n" + g.reverse().toString());
 
-		// ÑéÖ¤ ¡°¾ØÕó°éËæµÄ×ªÖÃµÈÓÚ¾ØÕó×ªÖÃµÄ°éËæ¡±
+		// éªŒè¯ â€œçŸ©é˜µä¼´éšçš„è½¬ç½®ç­‰äºçŸ©é˜µè½¬ç½®çš„ä¼´éšâ€
 		float m8[][] = { { 1, 2, -3 }, { 0, 1, 2 }, { 0, 0, 1 } };
 		Matrix h = new Matrix(m8);
-		System.out.println("¾ØÕó°éËæµÄ×ªÖÃ:\n" + h.ajoint().transpose().toString());
-		System.out.println("¾ØÕó×ªÖÃµÄ°éËæ:\n" + h.transpose().ajoint().toString());
+		System.out.println("çŸ©é˜µä¼´éšçš„è½¬ç½®:\n" + h.ajoint().transpose().toString());
+		System.out.println("çŸ©é˜µè½¬ç½®çš„ä¼´éš:\n" + h.transpose().ajoint().toString());
 
 	}
 }

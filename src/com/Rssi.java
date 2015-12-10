@@ -1,18 +1,19 @@
+package com;
 import java.util.HashMap;
 import java.util.Map;
 
 import util.Matrix;
 
-public class TestRSSI {
+public class Rssi {
 
 	public final static float A = 47.0f;
 	public final static float n = 4;
 
 	public static void main(String[] args) {
-		// num±íÊ¾ÓĞ¼¸¸öÌìÏßµÄRSSIÖµ²»Îª0
+		// numè¡¨ç¤ºæœ‰å‡ ä¸ªå¤©çº¿çš„RSSIå€¼ä¸ä¸º0
 		int num = 0;
 
-		// ÒÔ5¸ùÌìÏßÎªÀı
+		// ä»¥5æ ¹å¤©çº¿ä¸ºä¾‹
 		Map<Object, String> info1 = new HashMap<Object, String>();
 		Map<Object, String> info2 = new HashMap<Object, String>();
 		Map<Object, String> info3 = new HashMap<Object, String>();
@@ -21,7 +22,7 @@ public class TestRSSI {
 		
 		Map<String, Map<Object, String>> info = new HashMap<String, Map<Object, String>>();
 
-		// ·Ö±ğ¸øÌìÏßµÄ²ÎÊı¸³Öµ£¨´Ë´¦ÓÃÓÚÄ£Äâ£©
+		// åˆ†åˆ«ç»™å¤©çº¿çš„å‚æ•°èµ‹å€¼ï¼ˆæ­¤å¤„ç”¨äºæ¨¡æ‹Ÿï¼‰
 		info.put("1", info1);
 		info.put("2", info2);
 		info.put("3", info3);
@@ -31,53 +32,53 @@ public class TestRSSI {
 		info1.put("ID", "1");
 		info1.put("t", "12");
 		info1.put("EPC", "12");
-		info1.put("RSSI", "47");
+		info1.put("RSSI", "-47");
 		info1.put("x", "0");
 		info1.put("y", "600");
 
 		info2.put("ID", "2");
 		info2.put("t", "12");
 		info2.put("EPC", "12");
-		info2.put("RSSI", "60");
+		info2.put("RSSI", "-60");
 		info2.put("x", "0");
 		info2.put("y", "2700");
 
 		info3.put("ID", "3");
 		info3.put("t", "12");
 		info3.put("EPC", "12");
-		info3.put("RSSI", "0");
+		info3.put("RSSI", "-0");
 		info3.put("x", "7000");
 		info3.put("y", "600");
 
 		info4.put("ID", "4");
 		info4.put("t", "12");
 		info4.put("EPC", "12");
-		info4.put("RSSI", "30");
+		info4.put("RSSI", "-30");
 		info4.put("x", "7000");
 		info4.put("y", "4800");
 
 		info5.put("ID", "5");
 		info5.put("t", "12");
 		info5.put("EPC", "87");
-		info5.put("RSSI", "1000");
+		info5.put("RSSI", "-34");
 		info5.put("x", "7000");
 		info5.put("y", "2700");
 
-		// µÃµ½RSSIÖµµÄ×Ö·û´®Êı×é
+		// å¾—åˆ°RSSIå€¼çš„å­—ç¬¦ä¸²æ•°ç»„
 		String[] Rssi = new String[] { info1.get("RSSI"), info2.get("RSSI"), info3.get("RSSI"), info4.get("RSSI"), info5.get("RSSI") };
-		// ÓÃÓÚ´æ·ÅRSSIÖµ²»ÎªÁãµÄÌìÏß
+		// ç”¨äºå­˜æ”¾RSSIå€¼ä¸ä¸ºé›¶çš„å¤©çº¿
 		String[] jud = new String[Rssi.length];
 
 		int i = 0;
 		for (String s : Rssi) {
 			i++;
 			if (!s.equals("0")) {
-				jud[num] = String.valueOf(i);// µÃµ½RSSI²»Îª0ÌìÏßĞòºÅµÄÊı×é
+				jud[num] = String.valueOf(i);// å¾—åˆ°RSSIä¸ä¸º0å¤©çº¿åºå·çš„æ•°ç»„
 				num++;
 			}
 		}
 
-		// ½«×Ö·û´®Êı×é°´ÕÕ×Ö·û´®ÖĞÊı×ÖµÄ´óĞ¡ÅÅĞò
+		// å°†å­—ç¬¦ä¸²æ•°ç»„æŒ‰ç…§å­—ç¬¦ä¸²ä¸­æ•°å­—çš„å¤§å°æ’åº
 		int[] ia = new int[Rssi.length];
 		for (int j = 0; j < Rssi.length; j++) {
 			ia[j] = Integer.parseInt(Rssi[j]);
@@ -89,7 +90,7 @@ public class TestRSSI {
 			Rssi1[j] = String.valueOf(ia[j]);
 		}
 
-		// ÓÃÓÚ´æ·Å¾­ÅÅĞòÖ®ºóµÄRSSIÖµ
+		// ç”¨äºå­˜æ”¾ç»æ’åºä¹‹åçš„RSSIå€¼
 		String[] jud1 = new String[Rssi.length * info.size()];
 		int n = 0;
 		for (int m = 0; m < Rssi1.length; m++) {
@@ -105,26 +106,26 @@ public class TestRSSI {
 
 		switch (num) {
 		case 0:
-			System.out.println("´¬ÉÏÎ´¸ĞÓ¦µ½ÈÎºÎÎïÌå");
+			System.out.println("èˆ¹ä¸Šæœªæ„Ÿåº”åˆ°ä»»ä½•ç‰©ä½“");
 			break;
 		case 1:
-			System.out.println("ÓĞÒ»¸ùÌìÏß²É¼¯µ½ÁËÊı¾İ");
+			System.out.println("æœ‰ä¸€æ ¹å¤©çº¿é‡‡é›†åˆ°äº†æ•°æ®");
 			singlePoint(info.get(jud1[0]));
 			break;
 		case 2:
-			System.out.println("ÓĞÁ½¸ùÌìÏß²É¼¯µ½ÁËÊı¾İ");
+			System.out.println("æœ‰ä¸¤æ ¹å¤©çº¿é‡‡é›†åˆ°äº†æ•°æ®");
 			twoPoints(info.get(jud1[0]), info.get((jud1[1])));
 			break;
 		default:
-			System.out.println("Èı¸ù¼°ÒÔÉÏÌìÏß²É¼¯µ½ÁËÊı¾İ");
+			System.out.println("ä¸‰æ ¹åŠä»¥ä¸Šå¤©çº¿é‡‡é›†åˆ°äº†æ•°æ®");
 //			System.out.println(info.get(jud1[0]) + "\n" + info.get(jud1[1]) + "\n" + info.get(jud1[2]));
 			threePoints(info.get(jud1[0]), info.get(jud1[1]), info.get(jud1[2]));
 		}
 	}
 	
 	/*
-	 * ºúÂ·Ñş
-	 * ¹¦ÄÜ£ºÅÅĞòº¯ÊıÓÃÓÚ½«ËùÓĞµÄRSSIÖµ½øĞĞ´Ó´óµ½Ğ¡ÅÅĞò
+	 * èƒ¡è·¯ç‘¶
+	 * åŠŸèƒ½ï¼šæ’åºå‡½æ•°ç”¨äºå°†æ‰€æœ‰çš„RSSIå€¼è¿›è¡Œä»å¤§åˆ°å°æ’åº
 	 */
 	private static void sort(int[] a) {
 		 for (int i = 0; i < a.length-1; i++) {
@@ -139,103 +140,103 @@ public class TestRSSI {
 	}
 	
 	/*
-	 * ºúÂ·Ñş
-	 * ¹¦ÄÜ£ºÊµÏÖµ¥µã¶¨Î» 
-	 * ½ÓÊÕ²ÎÊı£ºmap(°üº¬£ºt EPC ID RSSI x y )
-	 * ·µ»Ø²ÎÊı£º
+	 * èƒ¡è·¯ç‘¶
+	 * åŠŸèƒ½ï¼šå®ç°å•ç‚¹å®šä½ 
+	 * æ¥æ”¶å‚æ•°ï¼šmap(åŒ…å«ï¼št EPC ID RSSI x y )
+	 * è¿”å›å‚æ•°ï¼š
 	 */
 	private static void singlePoint(Map map) {
-		System.out.println("EPCÎª£º"+ map.get("EPC")+"µÄºá×ø±êÎª"+map.get("x")+
-				"£¬×İ×ø±êÎª"+ map.get("y")+",¸ĞÓ¦µ½µÄÊ±¼äÎª"+ map.get("t")); 
+		System.out.println("EPCä¸ºï¼š"+ map.get("EPC")+"çš„æ¨ªåæ ‡ä¸º"+map.get("x")+
+				"ï¼Œçºµåæ ‡ä¸º"+ map.get("y")+",æ„Ÿåº”åˆ°çš„æ—¶é—´ä¸º"+ map.get("t")); 
 	}
 
 	/*
-	 * ºúÂ·Ñş
-	 * ¹¦ÄÜ£ºÊµÏÖÁ½µã¶¨Î» 
-	 * ½ÓÊÕ²ÎÊı£ºmap1¡¢map2(°üº¬£ºt EPC ID RSSI x y )
-	 * ·µ»Ø²ÎÊı£º
+	 * èƒ¡è·¯ç‘¶
+	 * åŠŸèƒ½ï¼šå®ç°ä¸¤ç‚¹å®šä½ 
+	 * æ¥æ”¶å‚æ•°ï¼šmap1ã€map2(åŒ…å«ï¼št EPC ID RSSI x y )
+	 * è¿”å›å‚æ•°ï¼š
 	 */
 	private static void twoPoints(Map map1,Map map2) {
 		if(Integer.parseInt( (String) map1.get("RSSI"))>=2*Integer.parseInt((String) map2.get("RSSI"))){
-			System.out.println("EPCÎª£º"+ map1.get("EPC")+"µÄºá×ø±êÎª"+map1.get("x")+
-					"£¬×İ×ø±êÎª"+ map1.get("y")+",¸ĞÓ¦µ½µÄÊ±¼äÎª"+ map1.get("t"));
+			System.out.println("EPCä¸ºï¼š"+ map1.get("EPC")+"çš„æ¨ªåæ ‡ä¸º"+map1.get("x")+
+					"ï¼Œçºµåæ ‡ä¸º"+ map1.get("y")+",æ„Ÿåº”åˆ°çš„æ—¶é—´ä¸º"+ map1.get("t"));
 		}
 		else if(2*Integer.parseInt((String) map1.get("RSSI"))<=Integer.parseInt((String) map2.get("RSSI"))){
-		System.out.println("EPCÎª£º"+ map2.get("EPC")+"µÄºá×ø±êÎª"+map2.get("x")+
-				"£¬×İ×ø±êÎª"+ map2.get("y")+",¸ĞÓ¦µ½µÄÊ±¼äÎª"+ map2.get("t")); 
+		System.out.println("EPCä¸ºï¼š"+ map2.get("EPC")+"çš„æ¨ªåæ ‡ä¸º"+map2.get("x")+
+				"ï¼Œçºµåæ ‡ä¸º"+ map2.get("y")+",æ„Ÿåº”åˆ°çš„æ—¶é—´ä¸º"+ map2.get("t")); 
 		}
 		else{ 
-			System.out.println("EPCÎª£º"+ map2.get("EPC")+
-			"µÄºá×ø±êÎª"+(Integer.parseInt((String) map2.get("x"))+Integer.parseInt((String) map1.get("x")))/2+
-			"£¬×İ×ø±êÎª"+(Integer.parseInt((String) map2.get("y"))+Integer.parseInt((String) map1.get("y")))/2+
-			",¸ĞÓ¦µ½µÄÊ±¼äÎª"+ map2.get("t")); 
+			System.out.println("EPCä¸ºï¼š"+ map2.get("EPC")+
+			"çš„æ¨ªåæ ‡ä¸º"+(Integer.parseInt((String) map2.get("x"))+Integer.parseInt((String) map1.get("x")))/2+
+			"ï¼Œçºµåæ ‡ä¸º"+(Integer.parseInt((String) map2.get("y"))+Integer.parseInt((String) map1.get("y")))/2+
+			",æ„Ÿåº”åˆ°çš„æ—¶é—´ä¸º"+ map2.get("t")); 
 		}
 	}
 	
 	/*
-	 * ¶Åº½
-	 * ¹¦ÄÜ£ºÀûÓÃ¹«Ê½ RSSI = -(A + 10*n*lg(d)) Çó½â d
-	 * ½ÓÊÕ²ÎÊı£ºRSSI(°üº¬£ºt EPC ID RSSI x y )
-	 * ·µ»Ø²ÎÊı£ºd
+	 * æœèˆª
+	 * åŠŸèƒ½ï¼šåˆ©ç”¨å…¬å¼ RSSI = -(A + 10*n*lg(d)) æ±‚è§£ d
+	 * æ¥æ”¶å‚æ•°ï¼šRSSI(åŒ…å«ï¼št EPC ID RSSI x y )
+	 * è¿”å›å‚æ•°ï¼šd
 	 */
 	public static float rssiFormula(float RSSI) {
-		float d = (float) Math.exp(-(RSSI + A) / (10 * n));
+		float d = (float) Math.pow(10,(-(RSSI + A) / (10 * n)));
 		return d;
 	}
 	
 	/*
-	 * ¶Åº½
-	 * ¹¦ÄÜ£ºÊµÏÖRSSIÈıµã¶¨Î» 
-	 * ½ÓÊÕ²ÎÊı£ºreceive1¡¢receive2¡¢receive3(°üº¬£ºt EPC ID RSSI x y )
-	 * ·µ»Ø²ÎÊı£ºresult
+	 * æœèˆª
+	 * åŠŸèƒ½ï¼šå®ç°RSSIä¸‰ç‚¹å®šä½ 
+	 * æ¥æ”¶å‚æ•°ï¼šreceive1ã€receive2ã€receive3(åŒ…å«ï¼št EPC ID RSSI x y )
+	 * è¿”å›å‚æ•°ï¼šresult
 	 */
 	public static Map threePoints(Map receive1, Map receive2, Map receive3) {
 		
-		// ÉùÃ÷RSSIÇó½â¹«Ê½ÖĞÉæ¼°µ½µÄ²ÎÊı
+		// å£°æ˜RSSIæ±‚è§£å…¬å¼ä¸­æ¶‰åŠåˆ°çš„å‚æ•°
 		float RSSI1, RSSI2, RSSI3, x1, x2, x3, y1, y2, y3, d1, d2, d3, A1, A2, A3, A4, B1, B2;
-		// »ñÈ¡RSSIÖµ
+		// è·å–RSSIå€¼
 		RSSI1 = Float.parseFloat(receive1.get("RSSI").toString());
 		RSSI2 = Float.parseFloat(receive2.get("RSSI").toString());
 		RSSI3 = Float.parseFloat(receive3.get("RSSI").toString());
-		// »ñÈ¡ÌìÏßºá×ø±êÖµx
+		// è·å–å¤©çº¿æ¨ªåæ ‡å€¼x
 		x1 = Float.parseFloat(receive1.get("x").toString());
 		x2 = Float.parseFloat(receive2.get("x").toString());
 		x3 = Float.parseFloat(receive3.get("x").toString());
-		// »ñÈ¡ÌìÏß×İ×ø±êÖµy
+		// è·å–å¤©çº¿çºµåæ ‡å€¼y
 		y1 = Float.parseFloat(receive1.get("y").toString());
 		y2 = Float.parseFloat(receive2.get("y").toString());
 		y3 = Float.parseFloat(receive3.get("y").toString());
-		// Çó½âÌìÏßµ½±êÇ©µÄ¾àÀëd
+		// æ±‚è§£å¤©çº¿åˆ°æ ‡ç­¾çš„è·ç¦»d
 		d1 = rssiFormula(RSSI1);
 		d2 = rssiFormula(RSSI2);
 		d3 = rssiFormula(RSSI3);
-		// ·â×°¾ØÕóµÄÔªËØ
+		// å°è£…çŸ©é˜µçš„å…ƒç´ 
 		A1 = 2 * (x1 - x3);
 		A2 = 2 * (y1 - y3);
 		A3 = 2 * (x2 - x3);
 		A4 = 2 * (y2 - y3);
 		B1 = (float) (Math.pow(x1,2) - Math.pow(x3,2) + Math.pow(y1,2) - Math.pow(y3,2) + Math.pow(d3,2) - Math.pow(d1,2));
 		B2 = (float) (Math.pow(x2,2) - Math.pow(x3,2) + Math.pow(y2,2) - Math.pow(y3,2) + Math.pow(d3,2) - Math.pow(d2,2));
-		// ¾ØÕóÇó½â¹«Ê½ÖĞµÚÒ»¸ö¾ØÕó
+		// çŸ©é˜µæ±‚è§£å…¬å¼ä¸­ç¬¬ä¸€ä¸ªçŸ©é˜µ
 		float tempA[][] = { { A1, A2 }, { A3, A4 } };
 		Matrix A = new Matrix(tempA);
-		// ¾ØÕóÇó½â¹«Ê½ÖĞµÚ¶ş¸ö¾ØÕó
+		// çŸ©é˜µæ±‚è§£å…¬å¼ä¸­ç¬¬äºŒä¸ªçŸ©é˜µ
 		float tempB[][] = { { B1 }, { B2 } };
 		Matrix B = new Matrix(tempB);
-		// ÉùÃ÷Çó½âµÄ×ø±ê(x,y)¾ØÕó
+		// å£°æ˜æ±‚è§£çš„åæ ‡(x,y)çŸ©é˜µ
 		Matrix XY = new Matrix(1, 2);
 
 		XY = A.reverse().multi(B);
 		
 //		System.out.println("XY:\n" + XY.toString());
-		System.out.println("±êÇ©×ø±ê(x,y)Îª:\t" + "(" + XY.get(0, 0) + "," + XY.get(0, 0) + ")");
+		System.out.println("æ ‡ç­¾åæ ‡(x,y)ä¸º:\t" + "(" + (int) XY.get(0, 0) + "," + (int) XY.get(1, 0) + ")");
 		
-		// ·â×°ĞèÒª´«¸øÏÂÒ»²ãµÄ²ÎÊıµ½resultÖĞ
+		// å°è£…éœ€è¦ä¼ ç»™ä¸‹ä¸€å±‚çš„å‚æ•°åˆ°resultä¸­
 		Map<Object, String> result = new HashMap<Object, String>();
 		result.put("ID", "5");
 		result.put("t", "12");
 		result.put("EPC", "12");
-		result.put("RSSI", "1000");
+		result.put("RSSI", "34");
 		result.put("x", "1111");
 		result.put("y", "2700");
 		
